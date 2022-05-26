@@ -1,0 +1,6 @@
+image: vue
+stdin_open: true
+ports:
+  - "3000:3000"
+networks:
+  - full-app

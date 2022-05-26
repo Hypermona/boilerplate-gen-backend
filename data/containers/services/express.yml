@@ -1,0 +1,9 @@
+image: express
+ports:
+  - "5000:5000"
+environment:
+  - MONGO_URL = mongodb://mongo:27017/
+networks:
+  - full-app
+depends_on:
+  - database

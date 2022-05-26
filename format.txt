@@ -1,0 +1,62 @@
+web -
+    frontend = react | vue | svelte
+    backend = express 
+    database = mongoDB | mysql | postgresql
+    container = docker 
+
+Android -
+    frontend = react-native
+    backend = express 
+    database = mongoDB | mysql | postgresql
+    container = None 
+
+query types:
+
+    To Generate bilerplate -
+    
+        [web] only frontend -
+        api request = /generate/web/frontend
+            request body = {
+                name: "name of project"
+                framework : "react | vue | svelte"
+                container : true | false
+            }
+        [web] only backend -
+            api request = /generate/web/backend
+                request body = {
+                    name: "name of project"
+                    framework : "express"
+                    db: "mongoDB | mysql | postgresql"
+                    container : true | false
+                }
+        [web] fullstack -
+            api request = /generate/web/fullstack
+                request body = {
+                    name: "name of project"
+                    frontend: "react | vue | svelte"
+                    backend: "express"
+                    db: "mongoDB | mysql | postgresql"
+                    container: true | false
+                    compose: true | false // if container is true then this field is always true
+                }
+        [android / ios] only frontend -
+        api request = /generate/mobile/frontend
+            request body = {
+                name: "name of project"
+                framework : "react-native"
+            }
+        [android / ios] fullstack -
+        api request = /generate/mobile/fullstack
+            request body = {
+                name: "name of project"
+                frontend : "react-native"
+                backend: "express"
+                db: "mongoDB | mysql | postgresql"
+            }
+
+
+    To download boilerplate as zip file - 
+        api request = /download
+        request body = {
+            name: "name of project"
+        }
