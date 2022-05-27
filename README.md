@@ -82,7 +82,7 @@ Start the server
   GET /generate/web/frontend
 ```
 
-```json
+```js
 {
     name: "name of project"
     framework : "react | vue | svelte"
@@ -96,7 +96,7 @@ Start the server
   GET /generate/web/backend
 ```
 
-```json
+```js
 {
     name: "name of project"
     framework : "express"
