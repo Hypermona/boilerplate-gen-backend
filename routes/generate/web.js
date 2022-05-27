@@ -14,7 +14,7 @@ router.get("/backend", async (req, res) => {
 
   copyf("/backend/" + d.framework, "/" + d.name);
   if (d.container) {
-    copyf(`/containers/dockerfile`, `/${d.name}/dockerfile`);
+    copyf(`/containers/Dockerfile`, `/${d.name}/Dockerfile`);
     copyf(`/containers/.dockerignore`, `/${d.name}/.dockerignore`);
   }
   copyf("/db/" + d.db + "/db.js", `/${d.name}/help/db.js`);
@@ -30,7 +30,7 @@ router.get("/frontend", async (req, res) => {
 
   copyf("/frontend/" + d.framework, "/" + d.name);
   if (d.container) {
-    copyf(`/containers/dockerfile`, `/${d.name}/dockerfile`);
+    copyf(`/containers/Dockerfile`, `/${d.name}/Dockerfile`);
     copyf(`/containers/.dockerignore`, `/${d.name}/.dockerignore`);
   }
   res.send("Done");
@@ -50,7 +50,7 @@ router.get("/fullstack/", async (req, res) => {
   copyf(`/backend/${d.backend}`, `/${d.name}/server`);
   copyf("/db/" + d.db + "/db.js", `/${d.name}/server/help/db.js`);
   if (d.container) {
-    copyf(`/containers/dockerfile`, `/${d.name}/client/dockerfile`);
+    copyf(`/containers/Dockerfile`, `/${d.name}/client/Dockerfile`);
     copyf(`/containers/.dockerignore`, `/${d.name}/server/.dockerignore`);
   }
   let status = false;
