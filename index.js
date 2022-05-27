@@ -7,6 +7,7 @@ const _delete = require("./routes/delete");
 const cors = require("cors");
 const morgan = require("morgan");
 const port = process.env.PORT || 5000;
+const host = process.env.YOUR_HOST || "0.0.0.0";
 
 app.use(cors());
 app.use(express.json());
@@ -20,6 +21,6 @@ app.use("/delete", _delete);
 app.use("/generate/web", web);
 app.use("/generate/mobile", mobile);
 
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Example app listening on port ${port}`);
 });
