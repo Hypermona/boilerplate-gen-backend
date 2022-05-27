@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs-extra");
 const copyf = require("../../copy");
 
-router.post("/frontend/", async (req, res) => {
+router.get("/frontend/", async (req, res) => {
   d = req.body || {
     name: "test",
     framework: "react-native",
