@@ -12,6 +12,9 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (req, res) => {
+  res.send("Successfuly deployed your app");
+});
 app.use("/download", download);
 app.use("/delete", _delete);
 app.use("/generate/web", web);
