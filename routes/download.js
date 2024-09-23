@@ -16,7 +16,7 @@ const zipAFold = async (name) => {
   console.log(`Created ${outputFile} successfully`);
 };
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   data = req.body || {
     name: "test",
   };
