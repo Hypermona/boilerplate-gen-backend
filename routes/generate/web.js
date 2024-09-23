@@ -4,7 +4,7 @@ const fs = require("fs-extra");
 const copyf = require("../../copy");
 const generateCompose = require("../../data/containers/services/generate");
 
-router.get("/backend", async (req, res) => {
+router.post("/backend", async (req, res) => {
   d = req.body || {
     name: "test",
     framework: "express",
@@ -21,7 +21,7 @@ router.get("/backend", async (req, res) => {
   res.send("Done");
 });
 
-router.get("/frontend", async (req, res) => {
+router.post("/frontend", async (req, res) => {
   d = req.body || {
     name: "test",
     framework: "react",
@@ -36,7 +36,7 @@ router.get("/frontend", async (req, res) => {
   res.send("Done");
 });
 
-router.get("/fullstack/", async (req, res) => {
+router.post("/fullstack/", async (req, res) => {
   d = req.body || {
     name: "airbus",
     frontend: "vue",
