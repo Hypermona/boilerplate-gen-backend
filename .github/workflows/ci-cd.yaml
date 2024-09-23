@@ -22,8 +22,8 @@ jobs:
           PROJECT_ID: ${{secrets.PID}}
         run: |
           gcloud auth configure-docker asia-south1-docker.pkg.dev
-          docker build -t asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api .
-          docker push asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api
+          docker build -t asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api/b-gen-api:${{ github.sha }} .
+          docker push asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api/b-gen-api:${{ github.sha }}
 
       - name: Deploy to Cloud Run
         env:
@@ -31,7 +31,7 @@ jobs:
           REGION: asia-south1
         run: |
           gcloud run deploy boilerplate-gen-api \
-            --image asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api \
+            --image asia-south1-docker.pkg.dev/$PROJECT_ID/boilerplate-gen-api/b-gen-api:${{ github.sha }} \
             --platform managed \
             --region $REGION \
             --allow-unauthenticated
